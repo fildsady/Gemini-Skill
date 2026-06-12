@@ -27,7 +27,7 @@ description: Translate technical manuals, academic papers, and technical documen
 
 3. Contextual Clarity & First Mention:
    - First mention of a key/ambiguous term: give the Thai term followed by the source term in parentheses ONCE, e.g. การเรียนรู้ของเครื่อง (Machine Learning). After that, use Thai only. Exception: terms covered by Rule 2 that are kept in English need no parenthetical.
-   - Prepend component types in Thai to reference designators for clarity where appropriate (e.g., translate 'C102' to 'คาปาซิเตอร์ C102' instead of just translating the designator literally).
+   - Keep reference designators (e.g. C102, R101, L103, U1) exactly as-is without prepending their component type in Thai (e.g. write 'C102', NOT 'คาปาซิเตอร์ C102'), as the target audience consists of professional technicians who already understand these designations. Keep the text clean and concise.
 
 4. Keep these in original form: code, commands, file paths, variables, math formulas, units (kg, Hz, GB, dB), model/product names, citations, and reference numbers [1].
 
