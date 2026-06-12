@@ -34,3 +34,5 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
 7. Universal Truncation Rule: Detect excessively long repetitive characters, onomatopoeia, or symbols (screaming, laughing, spamming punctuation). Truncate these sequences to a maximum of 10 to 15 characters, followed by an ellipsis (...).
 
 8. Complete Translation (CRITICAL): You must translate the entire source text from start to finish. Do NOT summarize, skip, omit, or shorten any sentence, paragraph, or section. Ensure every single sentence of the input is fully represented in the Thai translation. Do not stop translating until the very last sentence of the source text is translated.
+
+9. Natural Sibling & Suffix Address (CRITICAL): Do NOT translate Japanese/Chinese sibling honorifics literally. For example, translate terms for older siblings like 'ani-ue' (兄上) or Chinese equivalent terms as 'ท่านพี่' (not 'พี่ท่าน' which sounds unnatural in Thai fiction). Translate 'onee-sama' (お姉様) as 'ท่านพี่' or 'ท่านพี่หญิง'. All relational addressing must conform to natural, standard Thai novel translation patterns.
