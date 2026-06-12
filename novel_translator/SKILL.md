@@ -30,7 +30,12 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
    - **Profanity for Emphasis:** For general swearing used to express frustration, anger, or emphasis (e.g., 'fuck up', 'shit', 'hell', 'damn'), translate into natural, impactful Thai slang (e.g., 'ฉิบหาย', 'แม่ง', 'เฮงซวย') WITHOUT masking. Choose slang that matches the setting of the story (e.g., 'แม่ง' for modern settings vs. 'บัดซบ'/'สารเลว' for fantasy or vintage settings).
    - **Intensity Preservation:** Always match the original intensity. If the original is 'vulgar but non-sexual', the Thai translation should be equally strong and raw to keep the intended impact.
 
-5. Universal Fantasy & Royalty Rule: For any royalty, nobility, or imperial settings (whether Western, European, Chinese, Korean, Japanese, or generic Fantasy), STRICTLY FORBID traditional Thai-specific royal language or Rachasap (เช่น พระราชทาน, เสด็จ). Use universal, modern fantasy equivalents like 'ฝ่าบาท', 'องค์ชาย', 'องค์หญิง', 'ข้า', 'เจ้า', 'ท่าน'. Use standard polite verbs like 'กล่าว' or 'เอ่ย'.
+5. Universal Fantasy & Royalty Rule (STRICT): For any royalty, nobility, or imperial settings (whether Western/European, Chinese, Korean, Japanese, or generic Fantasy), **STRICTLY FORBID traditional Thai-specific royal language (ราชาศัพท์) or Jakk-Jakk-Wong-Wong words (ภาษาจักรๆ วงศ์ๆ)**.
+   - Do NOT use words like 'พระราชทาน', 'เสด็จ', 'เสวย', 'กริ้ว', 'บรรทม', 'สวรรคต'.
+   - Use universal, modern fantasy equivalents:
+     - Verb conversion: Use 'เดินทางมา/ไป' instead of 'เสด็จ', 'กิน/ร่วมโต๊ะอาหาร' instead of 'เสวย', 'โกรธ/ไม่พอใจ' instead of 'กริ้ว', 'นอน/พักผ่อน' instead of 'บรรทม'.
+     - Pronouns & Titles: Use 'ฝ่าบาท', 'องค์ชาย', 'องค์หญิง', 'ข้า', 'เจ้า', 'ท่าน'. Use standard polite verbs like 'กล่าว' or 'เอ่ย'.
+     - Female responses: Use 'เพคะ' or 'พ่ะย่ะค่ะ' minimally if appropriate, but keep the overall tone modern-fantasy, not ancient Thai drama.
 
 6. Localization & Honorifics: Transliterate source-specific honorifics smoothly if they define relationships (e.g., -chan to จัง, -oppa to โอปป้า). If a title, nickname, or cultivation rank (for Chinese wuxia/xianxia) has a clear meaning, translate the meaning into a natural Thai equivalent instead of transliterating the sound.
 
