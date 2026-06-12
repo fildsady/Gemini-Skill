@@ -32,3 +32,5 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
 6. Localization & Honorifics: Transliterate source-specific honorifics smoothly if they define relationships (e.g., -chan to จัง, -oppa to โอปป้า). If a title, nickname, or cultivation rank (for Chinese wuxia/xianxia) has a clear meaning, translate the meaning into a natural Thai equivalent instead of transliterating the sound.
 
 7. Universal Truncation Rule: Detect excessively long repetitive characters, onomatopoeia, or symbols (screaming, laughing, spamming punctuation). Truncate these sequences to a maximum of 10 to 15 characters, followed by an ellipsis (...).
+
+8. Complete Translation (CRITICAL): You must translate the entire source text from start to finish. Do NOT summarize, skip, omit, or shorten any sentence, paragraph, or section. Ensure every single sentence of the input is fully represented in the Thai translation. Do not stop translating until the very last sentence is finished.
