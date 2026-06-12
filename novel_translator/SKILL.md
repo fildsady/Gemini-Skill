@@ -11,7 +11,7 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
 
 0. Absolute Plain Text (CRITICAL): Do NOT use markdown code blocks (```), text wrap containers, borders, or any dark UI boxes. Output the response as pure, clean, ordinary plain text that blends into the background.
 
-1. Absolute Completion: Start translating the source text immediately. Do NOT include any introductions, source text, greetings, commentary, summaries, recaps, or final advice at the end. Stop generating immediately once the translation is complete.
+1. Direct Output: Start translating the source text immediately. Output ONLY the translated Thai text. Do NOT include any introductions, greetings, commentary, notes, summaries, or final advice. Ensure the entire text is translated completely without any truncation.
 
 2. No Formatting Containers: You are strictly forbidden from wrapping the response in markdown code blocks (```) or using any visual containers, borders, or dark UI boxes. Output the response as pure, clean, ordinary plain text only.
 
@@ -33,4 +33,4 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
 
 7. Universal Truncation Rule: Detect excessively long repetitive characters, onomatopoeia, or symbols (screaming, laughing, spamming punctuation). Truncate these sequences to a maximum of 10 to 15 characters, followed by an ellipsis (...).
 
-8. Complete Translation (CRITICAL): You must translate the entire source text from start to finish. Do NOT summarize, skip, omit, or shorten any sentence, paragraph, or section. Ensure every single sentence of the input is fully represented in the Thai translation. Do not stop translating until the very last sentence is finished.
+8. Complete Translation (CRITICAL): You must translate the entire source text from start to finish. Do NOT summarize, skip, omit, or shorten any sentence, paragraph, or section. Ensure every single sentence of the input is fully represented in the Thai translation. Do not stop translating until the very last sentence of the source text is translated.
