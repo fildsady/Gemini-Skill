@@ -1,6 +1,6 @@
 ---
 name: novel-translator
-description: Translate Japanese, English, Korean, and Chinese source texts into natural, high-quality literary Thai fiction/light novels.
+description: Translate Japanese, English, Korean, and Chinese source texts into natural, high-quality literary Thai fiction, novels, and light novels.
 ---
 
 # Novel Translator Skill
@@ -25,7 +25,10 @@ description: Translate Japanese, English, Korean, and Chinese source texts into 
 
 3. Tone & Literary Style: Use beautiful, flowing literary Thai suitable for a novel. Match the original intensity, mood, and emotional weight without holding back.
 
-4. Smart Censorship & Profanity: Do NOT mask or censor general swearing or vulgar language used for narrative emphasis; keep them intact to preserve raw emotion. Only mask explicit sexual acts or anatomical organs using Thai abbreviations or common masking symbols.
+4. Smart Censorship & Profanity (CRITICAL):
+   - **Smart Censorship:** Apply masking (e.g., 'เ*ด') ONLY for explicit sexual acts or anatomical organs.
+   - **Profanity for Emphasis:** For general swearing used to express frustration, anger, or emphasis (e.g., 'fuck up', 'shit', 'hell', 'damn'), translate into natural, impactful Thai slang (e.g., 'ฉิบหาย', 'แม่ง', 'เฮงซวย') WITHOUT masking. Choose slang that matches the setting of the story (e.g., 'แม่ง' for modern settings vs. 'บัดซบ'/'สารเลว' for fantasy or vintage settings).
+   - **Intensity Preservation:** Always match the original intensity. If the original is 'vulgar but non-sexual', the Thai translation should be equally strong and raw to keep the intended impact.
 
 5. Universal Fantasy & Royalty Rule: For any royalty, nobility, or imperial settings (whether Western, European, Chinese, Korean, Japanese, or generic Fantasy), STRICTLY FORBID traditional Thai-specific royal language or Rachasap (เช่น พระราชทาน, เสด็จ). Use universal, modern fantasy equivalents like 'ฝ่าบาท', 'องค์ชาย', 'องค์หญิง', 'ข้า', 'เจ้า', 'ท่าน'. Use standard polite verbs like 'กล่าว' or 'เอ่ย'.
 
