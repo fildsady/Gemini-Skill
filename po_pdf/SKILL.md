@@ -12,37 +12,58 @@ description: >
  
 ## ขั้นตอนการทำงาน
  
-### 1. ค้นหารูปภาพ
- 
-ดูรูปภาพที่ถ่ายมาวันนี้ใน `D:\Users\anon.s\Downloads` (นามสกุล .jpg / .jpeg / .png)
- 
+### 1. Resolve Paths (ทำก่อนทุกครั้ง)
+
+ก่อนเริ่มทำงาน ให้ detect path จาก home directory ของเครื่องที่ใช้อยู่ **อย่า hardcode path**:
+
 ```python
 import os
+from pathlib import Path
+
+home      = Path.home()                        # C:\Users\<username> หรือ /home/<username>
+downloads = home / "Downloads"
+desktop   = home / "Desktop"
+script    = desktop / "make_po_pdf.py"
+```
+
+ถ้าโฟลเดอร์ Downloads อยู่ไม่ตรง (เช่น drive อื่น) ให้รัน `ls` / `dir` แล้วถามผู้ใช้ยืนยัน path ก่อนดำเนินการต่อ
+
+### 2. ค้นหารูปภาพ
+
+ดูรูปภาพที่ถ่ายมาวันนี้ใน Downloads (นามสกุล .jpg / .jpeg / .png)
+
+```python
 from datetime import date
-downloads = r"D:\Users\anon.s\Downloads"
 today = date.today()
 imgs = [f for f in os.listdir(downloads)
         if f.lower().endswith(('.jpg','.jpeg','.png'))
-        and date.fromtimestamp(os.path.getmtime(os.path.join(downloads,f))) == today]
-imgs.sort(key=lambda f: os.path.getmtime(os.path.join(downloads,f)))
+        and date.fromtimestamp(os.path.getmtime(downloads / f)) == today]
+imgs.sort(key=lambda f: os.path.getmtime(downloads / f))
 ```
  
-### 2. อ่านข้อมูลจากรูปด้วย OCR
- 
+### 3. อ่านข้อมูลจากรูปด้วย OCR
+
 อ่านรูปแต่ละใบเพื่อหา: **เลข PO**, **วันที่**, **เดือน** โดยใช้ pytesseract
- 
+
 ```python
 import pytesseract
 from PIL import Image
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
- 
+import shutil
+
+# หา tesseract อัตโนมัติ — รองรับหลายเครื่อง
+tesseract_path = shutil.which("tesseract")
+if not tesseract_path:
+    # fallback: Windows default install path
+    tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
+
 text = pytesseract.image_to_string(Image.open(path), lang='tha+eng', config='--psm 3')
 ```
- 
+
 ค้นหา pattern ใน text:
 - เลข PO: `PO[.\w]+\d{6,}` หรือ `PO\.\w+\d+`
 - วันที่: `\d{2}/\d{2}/25\d{2}`
-### 3. แจ้งผู้ใช้ยืนยัน
+### 4. แจ้งผู้ใช้ยืนยัน
  
 แสดงตารางสรุปก่อนสร้าง PDF:
  
@@ -58,16 +79,16 @@ text = pytesseract.image_to_string(Image.open(path), lang='tha+eng', config='--p
  
 รอผู้ใช้ยืนยัน ถ้ามีรูปไหนระบุ PO ไม่ได้ให้ถามผู้ใช้เพิ่ม
  
-### 4. อัปเดต Script และรัน
- 
-เปิดไฟล์ `D:\Users\anon.s\Desktop\make_po_pdf.py` และอัปเดต `sections` ให้ตรงกับรูปชุดใหม่:
- 
+### 5. อัปเดต Script และรัน
+
+เปิดไฟล์ `make_po_pdf.py` ที่ Desktop (ใช้ `script` path จาก Step 1) และอัปเดต `sections` ให้ตรงกับรูปชุดใหม่:
+
 ```python
 sections = [
     {
         "month": "พฤษภาคม 2569",
         "pages": [
-            {"file": r"D:\Users\anon.s\Downloads\S__XXXX_0.jpg", "po": "PO.XXXXXXX"},
+            {"file": str(downloads / "S__XXXX_0.jpg"), "po": "PO.XXXXXXX"},
             ...
         ]
     },
@@ -77,14 +98,16 @@ sections = [
     },
 ]
 ```
- 
+
 จัดกลุ่มตามเดือน เรียงจากเก่าสุดก่อน แล้วรัน:
- 
+
 ```
-python D:\Users\anon.s\Desktop\make_po_pdf.py
+python "<desktop>/make_po_pdf.py"
 ```
+
+> ใช้ path จาก `script` variable ที่ resolve ไว้ใน Step 1 — ไม่ hardcode
  
-### 5. แจ้งผลลัพธ์
+### 6. แจ้งผลลัพธ์
  
 บอกผู้ใช้:
 - ชื่อไฟล์ที่บันทึก
@@ -109,10 +132,10 @@ python D:\Users\anon.s\Desktop\make_po_pdf.py
 ## Dependencies
  
 - **Python packages**: `opencv-python`, `pytesseract`, `pillow`, `pypdf`, `reportlab`
-- **Tesseract OCR**: `C:\Program Files\Tesseract-OCR\tesseract.exe`
+- **Tesseract OCR**: detect อัตโนมัติด้วย `shutil.which("tesseract")` — fallback `C:\Program Files\Tesseract-OCR\tesseract.exe`
 - **Language data**: `tha`, `eng`
-- **Script หลัก**: `D:\Users\anon.s\Desktop\make_po_pdf.py`
-- **Font**: TH Sarabun New (`C:\Windows\Fonts\THSarabunNew.ttf`)
+- **Script หลัก**: `Path.home() / "Desktop" / "make_po_pdf.py"` (resolve ตามเครื่องที่ใช้)
+- **Font**: TH Sarabun New — หาด้วย `Path(os.environ.get('WINDIR','C:/Windows')) / 'Fonts' / 'THSarabunNew.ttf'`
 ## ถ้า Script ไม่มีหรือเสียหาย
  
 ให้สร้างใหม่โดยใช้ logic เหล่านี้:
