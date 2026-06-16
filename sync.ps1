@@ -9,7 +9,7 @@ foreach ($destPath in $destPaths) {
     }
 }
 
-$folders = @("default_rules", "grill_me", "po_pdf", "novel_translator", "tech_translator", "song_translator", "thai_tech_writer", "av_embedded_planner")
+$folders = @("default_rules", "grill_me", "po_pdf", "novel_translator", "tech_translator", "song_translator", "thai_tech_writer", "av_embedded_planner", "stm32_libopencm3_troubleshoot")
 
 foreach ($folder in $folders) {
     $src = Join-Path $PSScriptRoot $folder
