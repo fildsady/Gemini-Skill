@@ -89,6 +89,7 @@ sections = [
         "month": "พฤษภาคม 2569",
         "pages": [
             {"file": str(downloads / "S__XXXX_0.jpg"), "po": "PO.XXXXXXX"},
+            {"file": str(downloads / "S__YYYY_1.jpg"), "po": "PO.YYYYYYY", "rotate": 180}, # ใส่ "rotate": 180 (หรือ 90, 270) เพื่อแก้ปัญหาภาพกลับหัว
             ...
         ]
     },
@@ -150,6 +151,7 @@ python "<desktop>/make_po_pdf.py"
  
 # 3. ทำพื้นขาว เส้นดำ
 #    adaptiveThreshold(norm, blockSize=41, C=18) + medianBlur(3)
+#    (หากรับค่า extra_rotate มา ให้หมุนภาพด้วย cv2.rotate ก่อนไปขั้นต่อไป เพื่อแก้ปัญหาภาพกลับหัว)
  
 # 4. Resize พอดี A4 @ 200 DPI (1654×2338 px)
  
@@ -158,6 +160,7 @@ python "<desktop>/make_po_pdf.py"
  
 # 6. รวม pages + bookmarks
 #    pypdf.PdfWriter + add_outline_item()
+#    **สำคัญ**: ต้องตรวจสอบไม่ให้สร้าง Bookmark ซ้ำ (ใช้ set บันทึก PO ที่เคยสร้างแล้ว) สำหรับกรณีที่ PO เดียวกันมีหลายหน้า
  
 # 7. ปก + สารบัญ + divider pages
 #    reportlab canvas, font TH Sarabun New
